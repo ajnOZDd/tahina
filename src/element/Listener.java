@@ -1,12 +1,24 @@
 package element;
 import java.awt.event.* ;
+import java.util.Random;
 
 public class Listener implements KeyListener {
     Button b ;
     int count ;
     int countJoueur ;
+    Random rand = new Random() ;
+    String nameJoueurtirer ;
     ListenerMouse m ;
     String [] chanceTir ={"marque", "rebondir"}; 
+    String prevision ;
+    public String getPrevision() {
+        return prevision;
+    }
+
+    public String getNameJoueurtirer() {
+        return nameJoueurtirer;
+    }
+    
     public Listener(Button but, ListenerMouse mi){
     b=but ;
     m=mi;
@@ -23,13 +35,18 @@ public class Listener implements KeyListener {
         count+=1 ;
        }
        if (e.getKeyChar()=='t'){
-        for (int i = 0 ; i<b.buttons.size();i++){
-            countJoueur = i ;
+           try {
+            System.out.println("tirer"+getNameJoueurtirer());
+            System.out.println(chanceTir[rand.nextInt(chanceTir.length)]);
+            prevision = chanceTir[rand.nextInt(chanceTir.length)];
+           } catch (Exception e1) {
+            System.out.println(e1);
+           }
         }
-        System.out.println("tir du joueur :"+" "+ countJoueur);
-       }
        
     }
+       
+    
 
     @Override
     public void keyReleased(KeyEvent e) {
