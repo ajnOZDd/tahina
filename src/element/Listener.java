@@ -46,12 +46,7 @@ public class Listener implements KeyListener {
             System.out.println("tirer"+getNameJoueurtirer());
             System.out.println(chanceTir[rand.nextInt(chanceTir.length)]);
             prevision = chanceTir[rand.nextInt(chanceTir.length)];
-            if (prevision=="marque"){
-            gen= new Generalisation();
             
-            gen.insert(nameJoueurtirer, chanceTir);
-            }
-           
            } catch (Exception e1) {
             System.out.println(e1);
            }

@@ -22,6 +22,7 @@ public class Generalisation {
      String value = "insert into "+nomTable+" values (getSeq(),"+maka+")";
      statement = co.co().prepareStatement(value);
      System.out.print(value);
+     set= statement.executeQuery();
      co.co().close(); 
      } catch (SQLException e) {
         e.printStackTrace();
