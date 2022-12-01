@@ -20,21 +20,23 @@ public class Button  {
    
 
      public void  bt (Affichage f , ListenerMouse m){
-     System.out.println(nomButtonEquipe2.length);
+     
      int deplacementX = 50 ;
      for (int i = 0 ; i<equipe1.length ; i++){
-     Panel = new JPanel();
      equipe1[i]= new JButton(nomButtonEquipe1[i]);
      equipe1[i].setBounds(deplacementX, 120, 50, 15);
      equipe2[i] = new JButton(nomButtonEquipe2[i]);
      equipe2[i].setBounds(deplacementX, 150, 50, 15);
      deplacementX+=75 ;
+     //add equipe in frame
      f.add(equipe1[i]);
      f.add(equipe2[i]);
+     //parametreEquipe
      equipe1[i].addMouseListener(m);
      equipe2[i].addMouseListener(m);
      equipe1[i].setFocusable(false);
      equipe2[i].setFocusable(false);
+     //add JButton in arraylist
      buttons.add(equipe1[i]);
      buttons.add(equipe2[i]);
      }
@@ -42,6 +44,8 @@ public class Button  {
 
 
     } 
+
+    
 
   
 }

@@ -6,6 +6,7 @@ import javax.swing.event.*;
 import element.Button;
 import element.Listener;
 import element.ListenerMouse;
+import element.Point;
 
 import java.awt.* ;
 import java.awt.event.* ;
@@ -14,12 +15,19 @@ public class Affichage extends JFrame {
     Listener KeyListener;
     ListenerMouse event ;
     Button k ;
+    Point point  ;
+   
     Affichage (){
+    //toutes les classes appelle
     k = new Button();
     KeyListener=new Listener(k, event);
     event= new ListenerMouse(k, KeyListener);
-    this.setLayout(null);
+    point = new Point() ;
+    //toutes les fonctions
     k.bt(this, event);
+    point.pointEquipeGagnant(KeyListener);
+    //reglage fenetre
+    this.setLayout(null);
     this.setVisible(true);
     this.setSize(500 , 500);
     this.addKeyListener(KeyListener);

@@ -6,6 +6,8 @@ public class Listener implements KeyListener {
     Button b ;
     int count ;
     int countJoueur ;
+    Point p ;
+    Boolean confirmationMarquage=false ;
     Random rand = new Random() ;
     String nameJoueurtirer ;
     ListenerMouse m ;
@@ -14,9 +16,11 @@ public class Listener implements KeyListener {
     public String getPrevision() {
         return prevision;
     }
-
     public String getNameJoueurtirer() {
         return nameJoueurtirer;
+    }
+    public Boolean getConfirmationMarquage() {
+        return confirmationMarquage;
     }
     
     public Listener(Button but, ListenerMouse mi){
@@ -39,11 +43,18 @@ public class Listener implements KeyListener {
             System.out.println("tirer"+getNameJoueurtirer());
             System.out.println(chanceTir[rand.nextInt(chanceTir.length)]);
             prevision = chanceTir[rand.nextInt(chanceTir.length)];
+            confirmationMarquage=true ;
+           
            } catch (Exception e1) {
             System.out.println(e1);
            }
         }
        
+    }
+    
+
+    public void pointGagner (){
+        
     }
        
     
