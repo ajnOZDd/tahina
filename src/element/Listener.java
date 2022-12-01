@@ -2,6 +2,8 @@ package element;
 import java.awt.event.* ;
 import java.util.Random;
 
+import connect.Connect;
+
 public class Listener implements KeyListener {
     Button b ;
     int count ;
@@ -13,6 +15,7 @@ public class Listener implements KeyListener {
     ListenerMouse m ;
     String [] chanceTir ={"marque", "rebondir"}; 
     String prevision ;
+    Generalisation gen ;
     public String getPrevision() {
         return prevision;
     }
@@ -43,7 +46,11 @@ public class Listener implements KeyListener {
             System.out.println("tirer"+getNameJoueurtirer());
             System.out.println(chanceTir[rand.nextInt(chanceTir.length)]);
             prevision = chanceTir[rand.nextInt(chanceTir.length)];
-            confirmationMarquage=true ;
+            if (prevision=="marque"){
+            gen= new Generalisation();
+            
+            gen.insert(nameJoueurtirer, chanceTir);
+            }
            
            } catch (Exception e1) {
             System.out.println(e1);
