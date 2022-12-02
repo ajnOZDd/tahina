@@ -11,9 +11,10 @@ public class Generalisation {
     ResultSet set ;
     String maka ;
     Connect co  ;
-    public Object [] insert (String nomTable ,Object[]requette){
+    public Object [] insertion (String nomTable ,Object[]requette){
+    maka="";
      for ( int i =0 ; i<requette.length-1; i++){
-        maka= maka+requette[i]+"," ;
+        maka= maka+""+requette[i]+"," ;
      }
      maka= maka+requette[requette.length-1] ;
      co= new Connect() ;
@@ -21,7 +22,7 @@ public class Generalisation {
      co.co() ;
      String value = "insert into "+nomTable+" values (getSeq(),"+maka+")";
      statement = co.co().prepareStatement(value);
-     System.out.print(value);
+     System.out.print(value+"/n");
      set= statement.executeQuery();
      co.co().close(); 
      } catch (SQLException e) {
@@ -30,7 +31,23 @@ public class Generalisation {
      
      return requette ;
     }
-
+    public void insertStepbyStep (String Table ,Object [] param1) {
+    
+      try {
+          co= new Connect();
+          co.co();
+          
+          for (int i = 0 ; i<param1.length ; i++){
+              statement = co.co().prepareStatement("insert into "+Table+" values (getseq(),"+param1[i]+")") ;
+              set = statement.executeQuery();
+          }
+          co.co().close();
+      } catch (SQLException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+      }
+      
+      }
     public Object [] select (String nomTable ,Object[]requette){
         for ( int i =0 ; i<requette.length-1; i++){
            maka= maka+requette[i]+"," ;

@@ -15,22 +15,18 @@ nomEquipe varchar(25) ,
 nombreJoueur varchar (25),
 nomJoueur varchar(15) 
 ) ;
- 
-create table tir (
-idTir integer primary key ,
-idEquipe int,
-nombreDeTirJoueur int ,
-nombreDetirMarque int,
-foreign key (idEquipe) references equipe(idEquipe)
-);
 
 create table passe (
 idPasse integer primary key ,
 PersonnPasse varchar (25) ,
 PersonnAvant varchar (25),
-nombrePasseParJoueur int
 );
-
+create table tir (
+idTir integer primary key ,
+idEquipe int,
+nombreDetirMarque int,
+foreign key (idEquipe) references equipe(idEquipe)
+);
 create table ballec (
 idBallec integer primary key,
 idEquipe int,

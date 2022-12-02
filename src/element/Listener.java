@@ -5,8 +5,8 @@ import java.util.Random;
 import connect.Connect;
 
 public class Listener implements KeyListener {
-    Button b ;
-    int count ;
+    Parametre b ;
+    int countN ;
     int countJoueur ;
     Point p ;
     Boolean confirmationMarquage=false ;
@@ -26,9 +26,9 @@ public class Listener implements KeyListener {
         return confirmationMarquage;
     }
     
-    public Listener(Button but, ListenerMouse mi){
+    public Listener(Parametre but){
     b=but ;
-    m=mi;
+    
     }
     @Override
     public void keyTyped(KeyEvent e) {
@@ -39,11 +39,12 @@ public class Listener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
        if (e.getKeyChar()=='b'){
-        count+=1 ;
+        countN+=1 ;
        }
        if (e.getKeyChar()=='t'){
            try {
-            System.out.println("tirer"+getNameJoueurtirer());
+            System.out.print("tir");
+            b.addGen(getNameJoueurtirer());
             System.out.println(chanceTir[rand.nextInt(chanceTir.length)]);
             prevision = chanceTir[rand.nextInt(chanceTir.length)];
             
